@@ -1,0 +1,33 @@
+{#{% extends "base.html" %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+    <h1>
+        {{ hello }}
+    </h1>
+
+    <ul>
+    {%  for val in sportList %}
+        {% if val.age > 18 %}
+        <li>
+            Name: {{ val.name | lower }}
+            Age: {{ val.age }}
+            Height: {{ val.height }}
+        </li>
+        {% else %}
+        <li>
+            The lower age sport: {{ val.name }}
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% include 'base.html' %}
+    {% block mainbody %}
+    <p>继承了 base.html 文件</p>
+    {% endblock %}
+</body>
+</html>
